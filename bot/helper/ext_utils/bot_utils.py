@@ -13,16 +13,16 @@ URL_REGEX = r"(?:(?:https?|ftp):\/\/)?[\w/\-?=%.]+\.[\w/\-?=%.]+"
 
 
 class MirrorStatus:
-    STATUS_UPLOADING = "📤 Uploading..."
-    STATUS_DOWNLOADING = "📥 Downloading..."
-    STATUS_WAITING = "⏳Queued..."
-    STATUS_FAILED = "Failed. Cleaning download..."
-    STATUS_CANCELLED = "Cancelled."
-    STATUS_ARCHIVING = "Archiving..."
-    STATUS_PAUSE = "Paused..."
-    STATUS_EXTRACTING = "Extracting..."
-    STATUS_SPLITTING = "Splitting..."
-    STATUS_CLONING = "📂 Cloning..."
+    STATUS_UPLOADING = "📤 جار الرفع..."
+    STATUS_DOWNLOADING = "📥 جار التنزيل..."
+    STATUS_WAITING = "⏳في قائمة الإنتظار..."
+    STATUS_FAILED = "فشل. جار تنظيف الملفات..."
+    STATUS_CANCELLED = "تم الالغاء."
+    STATUS_ARCHIVING = "جار الضغط..."
+    STATUS_PAUSE = "متوقف..."
+    STATUS_EXTRACTING = "جار فك الضغط..."
+    STATUS_SPLITTING = "جار التقسيم..."
+    STATUS_CLONING = "📂 جار النسخ..."
     STATUS_SEEDING = "Seeding..."
     STATUS_CHECKING = "CheckingUp..."
 
@@ -135,13 +135,13 @@ def get_readable_message():
             if download.status() != MirrorStatus.STATUS_ARCHIVING and download.status() != MirrorStatus.STATUS_EXTRACTING and download.status() != MirrorStatus.STATUS_SPLITTING and download.status() != MirrorStatus.STATUS_SEEDING:
                 msg += f"\n\n{get_progress_bar_string(download)} {download.progress()}"
                 if download.status() == MirrorStatus.STATUS_UPLOADING:
-                    msg += f"\n\n<b>✅ Uploaded:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
+                    msg += f"\n\n<b>✅ تم الرفع:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
                 elif download.status() == MirrorStatus.STATUS_CLONING:
-                        msg += f"\n\n<b>✅ Cloned:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"                   
+                        msg += f"\n\n<b>✅ تم النسخ:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"                   
                 else:
-                    msg += f"\n\n<b>✅ Downloading:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
-                msg += f"\n\n<b>🚀 Speed:</b> {download.speed()}" \
-                        f"\n\n<b>⏰ Time Left:</b> {download.eta()} "
+                    msg += f"\n\n<b>✅ جار التنزيل:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
+                msg += f"\n\n<b>🚀 السرعة:</b> {download.speed()}" \
+                        f"\n\n<b>⏰ الوقت المتبقي:</b> {download.eta()} "
                 # if hasattr(download, 'is_torrent'):
                 try:
                     msg += f"\n\n<b>🌱 Seeders:</b> {download.aria_download().num_seeders}" \
@@ -153,16 +153,16 @@ def get_readable_message():
                             f" | <b>Leechers:</b> {download.torrent_info().num_leechs}"
                     except:
                         pass
-                msg += f'\n\n<b>👤 User:</b> {download.message.from_user.first_name} ➡️<code>{download.message.from_user.id}</code>'
-                msg += f"\n<b>⛔ To Stop:</b> <code>/{BotCommands.CancelMirror} {download.gid()}</code>"
+                msg += f'\n\n<b>👤 المستخدم:</b> {download.message.from_user.first_name} ➡️<code>{download.message.from_user.id}</code>'
+                msg += f"\n<b>⛔ للإيقاف:</b> <code>/{BotCommands.CancelMirror} {download.gid()}</code>"
             elif download.status() == MirrorStatus.STATUS_SEEDING:
-                msg += f"\n\n<b>Size: </b>{download.size()}"
-                msg += f"\n\n<b>🚀 Speed: </b>{get_readable_file_size(download.torrent_info().upspeed)}/s"
-                msg += f" | <b>✅ Uploaded: </b>{get_readable_file_size(download.torrent_info().uploaded)}"
-                msg += f"\n\n<b>Ratio: </b>{round(download.torrent_info().ratio, 3)}"
-                msg += f" | <b>Time: </b>{get_readable_time(download.torrent_info().seeding_time)}"
-                msg += f'\n\n<b>👤 User:</b> {download.message.from_user.first_name} ➡️<code>{download.message.from_user.id}</code>'
-                msg += f"\n<b>⛔ To Stop:</b> <code>/{BotCommands.CancelMirror} {download.gid()}</code>"
+                msg += f"\n\n<b>الحجم: </b>{download.size()}"
+                msg += f"\n\n<b>🚀 السرعة: </b>{get_readable_file_size(download.torrent_info().upspeed)}/s"
+                msg += f" | <b>✅ تم رفع: </b>{get_readable_file_size(download.torrent_info().uploaded)}"
+                msg += f"\n\n<b>النسبة: </b>{round(download.torrent_info().ratio, 3)}"
+                msg += f" | <b>الوقت: </b>{get_readable_time(download.torrent_info().seeding_time)}"
+                msg += f'\n\n<b>👤 المستخدم:</b> {download.message.from_user.first_name} ➡️<code>{download.message.from_user.id}</code>'
+                msg += f"\n<b>⛔ للإيقاف:</b> <code>/{BotCommands.CancelMirror} {download.gid()}</code>"
             msg += "\n\n"
         return msg    
 
