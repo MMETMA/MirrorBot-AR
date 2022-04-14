@@ -1,10 +1,14 @@
-# What's Different in this fork?!
+# ايه المختلف هنا عن الريبو الاصلي؟!
 
-Simpler Mirroring Massage 👇
+١. البوت بالعربي
+
+٢. ضيفت زرار فيه معلومات عن اعادة تسمية الملفات في /help
+
+٣. شكل افضل وابسط لرسائل البوت 👇
 
 [![New Mirroring Massage](https://telegra.ph/file/eace7633a5fb6f94833db.jpg)](https://t.me/MMETMA)
 
-`Original Mirroring Massage looked like this 👇`
+`الرسالة الاصلية كان شكلها كده 👇`
 
 [![Original Mirroring Massage](https://telegra.ph/file/66f215ab585a89cf9aa02.jpg)](https://github.com/harshpreets63/Mirror-Bot)
 
