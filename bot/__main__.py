@@ -63,25 +63,25 @@ def stats(update, context):
 
 def start(update, context):
     buttons = button_build.ButtonMaker()
-    buttons.buildbutton("Repo", "https://github.com/MMETMA/Mirror-Bot")
-    buttons.buildbutton("Owner", "https://t.me/MMETMA")
+    buttons.buildbutton("الريبو", "https://github.com/MMETMA/MirrorBot-AR")
+    buttons.buildbutton("مالك البوت", "https://t.me/MMETMA")
     reply_markup = InlineKeyboardMarkup(buttons.build_menu(2))
     if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
         start_string = f'''
-This bot can mirror all your links to Google Drive!
-Type /{BotCommands.HelpCommand} to get a list of available commands
+البوت ده ممكن يعمل نسخ للروابط علي جوجل درايڤ!
+اكتب /{BotCommands.HelpCommand} عشان تشوف كل اوامر البوت
 '''
         sendMarkup(start_string, context.bot, update, reply_markup)
     else:
         sendMarkup(
-            'Oops! not a Authorized user.\nPlease join our Channel.\nOr Host Your Own Bot Using My Repo.',
+            'عفوا! انت ليس مصرح لك باستخدام البوت.\nممكن تعمل بوت خاص بيك من الريبو.',
             context.bot,
             update,
             reply_markup,
         )
 
 def restart(update, context):
-    restart_message = sendMessage("Restarting, Please wait!", context.bot, update)
+    restart_message = sendMessage("جار اعادة التشغيل, من فضلك انتظر!", context.bot, update)
     # Save restart message ID and chat ID in order to edit it after restarting
     with open(".restartmsg", "w") as f:
         f.truncate(0)
@@ -102,9 +102,9 @@ def log(update, context):
 
 def bot_help(update, context):
     help_string_telegraph = f'''<br>
-<b>/{BotCommands.HelpCommand}</b>: To get this message
+<b>/{BotCommands.HelpCommand}</b>: عشان يظهرلك الرسالة دي
 <br><br>
-<b>/{BotCommands.MirrorCommand}</b> [download_url][magnet_link]: Start mirroring to Google Drive. Send <b>/{BotCommands.MirrorCommand}</b> for more help
+<b>/{BotCommands.MirrorCommand}</b> [لينك مباشر][Magnet]: رفع الملف علي جوجل درايڤ. ابعت <b>/{BotCommands.MirrorCommand}</b> لمساعدة اكتر.
 <br><br>
 <b>/{BotCommands.ZipMirrorCommand}</b> [download_url][magnet_link]: Start mirroring and upload the file/folder compressed with zip extension
 <br><br>
