@@ -8,7 +8,7 @@ from telegram.ext import CallbackContext, Filters, CommandHandler
 
 def speedtest(update, context):
     message = update.effective_message
-    ed_msg = message.reply_text("جار حساب سرعة الانترنت . . . 📈📊")
+    ed_msg = message.reply_text("جار حساب سرعة البوت . . . 📈📊")
     test = Speedtest()
     test.get_best_server()
     test.download()
@@ -17,7 +17,7 @@ def speedtest(update, context):
     result = test.results.dict()
     path = (result['share'])
     string_speed = f'''
-<b>🖥️ السيرفر / Stats of The Machine 🖥️</b>
+<b>🖥️ السيرفر / سرعة البوت 🖥️</b>
 <b>💳 الاسم:</b> <code>{result['server']['name']}</code>
 <b>⛳️ الدولة:</b> <code>{result['server']['country']}, {result['server']['cc']}</code>
     
