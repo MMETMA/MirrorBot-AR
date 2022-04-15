@@ -1057,7 +1057,7 @@ class GoogleDriveHelper:
         if self.num_of_path > 1:
             self.edit_telegraph()
 
-        msg = f"<b>Found <code>{len(response['files'])}</code> results for <code>{fileName}</code></b>"
+        msg = f"<b>تم العثور علي <code>{len(response['files'])}</code> نتائج ل <code>{fileName}</code></b>"
         buttons = button_build.ButtonMaker()
         buttons.buildbutton("Click Here for results", f"https://telegra.ph/{self.path[0]}")
 
