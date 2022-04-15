@@ -958,7 +958,7 @@ class GoogleDriveHelper:
         self.num_of_path = len(self.path)
         if self.num_of_path > 1:
             self.edit_telegraph()
-        msg = f"Found {all_contents_count} results for {fileName}"
+        msg = f"تم العثور علي {all_contents_count} نتائج ل {fileName}"
         buttons = button_build.ButtonMaker()
         buttons.buildbutton("Click Here for results", f"https://telegra.ph/{self.path[0]}")
         return msg, InlineKeyboardMarkup(buttons.build_menu(1))
