@@ -204,7 +204,7 @@ class MirrorListener(listeners.MirrorListeners):
             uname = f"@{self.message.from_user.username}"
         else:
             uname = f'<a href="tg://user?id={self.message.from_user.id}">{self.message.from_user.first_name}</a>'
-        msg = f"{uname} your download has been stopped due to: {error}"
+        msg = f"{uname} تحميلك توقف بسبب: {error}"
         sendMessage(msg, self.bot, self.update)
         if count == 0:
             self.clean()
@@ -468,7 +468,7 @@ def _mirror(bot, update, isTar=False, isZip=False, extract=False, isQbit=False, 
                     LOGGER.error(str(e))
                     return
     elif not bot_utils.is_url(link) and not bot_utils.is_magnet(link):
-        sendMessage("No download source provided", bot, update)
+        sendMessage("لم يتم ارسال رابط", bot, update)
         return
     try:
         gdtot_link = bot_utils.is_gdtot_link(link)
@@ -514,7 +514,7 @@ def _mirror(bot, update, isTar=False, isZip=False, extract=False, isQbit=False, 
         sendStatusMessage(update, bot)
     elif bot_utils.is_mega_link(link) and BLOCK_MEGA_LINKS:
         sendMessage(
-            "Mega links are blocked. Dont try to mirror mega links.", bot, update
+            "لينكات ميجا محظورة ، متحاولش.", bot, update
         )
     elif isQbit and (bot_utils.is_magnet(link) or os.path.exists(link)):
         qbit = QbitTorrent()
