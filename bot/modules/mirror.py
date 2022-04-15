@@ -278,9 +278,9 @@ class MirrorListener(listeners.MirrorListeners):
                 surl = requests.get(
                     f"https://{SHORTENER}/api?api={SHORTENER_API}&url={link}&format=text"
                 ).text
-                buttons.buildbutton("☁️ لينك درايڥ", surl)
+                buttons.buildbutton("☁️ رابط درايڤ", surl)
             else:
-                buttons.buildbutton("☁️ لينك درايڤ", link)
+                buttons.buildbutton("☁️ رابط درايڤ", link)
             LOGGER.info(f'Done Uploading {download_dict[self.uid].name()}')
             if INDEX_URL is not None:
                 url_path = requests.utils.quote(f'{download_dict[self.uid].name()}')
@@ -289,21 +289,21 @@ class MirrorListener(listeners.MirrorListeners):
                     share_url += '/'
                     if SHORTENER is not None and SHORTENER_API is not None:
                         siurl = requests.get(f'https://{SHORTENER}/api?api={SHORTENER_API}&url={share_url}&format=text').text
-                        buttons.buildbutton("⚡ لينك انديكس", siurl)
+                        buttons.buildbutton("⚡ رابط مباشر", siurl)
                     else:
-                        buttons.buildbutton("⚡ لينك انديكس", share_url)
+                        buttons.buildbutton("⚡ رابط مباشر", share_url)
                 else:
                     share_urls = f'{INDEX_URL}/{url_path}?a=view'
                     if SHORTENER is not None and SHORTENER_API is not None:
                         siurl = requests.get(f'https://{SHORTENER}/api?api={SHORTENER_API}&url={share_url}&format=text').text
                         siurls = requests.get(f'https://{SHORTENER}/api?api={SHORTENER_API}&url={share_urls}&format=text').text
-                        buttons.buildbutton("⚡ لينك انديكس", siurl)
+                        buttons.buildbutton("⚡ رابط مباشر", siurl)
                         if VIEW_LINK:
-                            buttons.buildbutton("🌐 لينك مشاهدة", siurls)
+                            buttons.buildbutton("🌐 رابط مشاهدة", siurls)
                     else:
-                        buttons.buildbutton("⚡ لينك انديكس", share_url)
+                        buttons.buildbutton("⚡ رابط مباشر", share_url)
                         if VIEW_LINK:
-                            buttons.buildbutton("🌐 لينك مشاهدة", share_urls)
+                            buttons.buildbutton("🌐 رابط مشاهدة", share_urls)
             if BUTTON_THREE_NAME is not None and BUTTON_THREE_URL is not None:
                 buttons.buildbutton(f"{BUTTON_THREE_NAME}", f"{BUTTON_THREE_URL}")               
             if BUTTON_FOUR_NAME is not None and BUTTON_FOUR_URL is not None:
@@ -514,7 +514,7 @@ def _mirror(bot, update, isTar=False, isZip=False, extract=False, isQbit=False, 
         sendStatusMessage(update, bot)
     elif bot_utils.is_mega_link(link) and BLOCK_MEGA_LINKS:
         sendMessage(
-            "لينكات ميجا محظورة ، متحاولش.", bot, update
+            "روابط ميجا محظورة ، متحاولش.", bot, update
         )
     elif isQbit and (bot_utils.is_magnet(link) or os.path.exists(link)):
         qbit = QbitTorrent()
