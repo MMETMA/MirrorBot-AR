@@ -158,19 +158,17 @@ def bot_help(update, context):
 '''
 
     help_string = f'''
-/{BotCommands.HelpCommand} To get this message    
-/{BotCommands.MirrorCommand} [download_url][magnet_link]: Start mirroring the link to Google Drive.
-/{BotCommands.QbMirrorCommand} [download_url][magnet_link]: Start mirroring the link to Google Drive With Qbit.
-/{BotCommands.ZipMirrorCommand} [download_url][magnet_link]: Start mirroring and upload the archived (.zip) version of the download.
-/{BotCommands.LeechCommand} [download_url][magnet_link]: Start mirroring the link to Telegram.
-/{BotCommands.ZipLeechCommand} [download_url][magnet_link]: Start mirroring and upload the archived (.zip) version of the download to Telegram.
-/{BotCommands.QbTarMirrorCommand} [download_url][magnet_link]: Start mirroring with Qbit and upload the archived (.tar) version of the download.
-/{BotCommands.WatchCommand} [youtube-dl supported link]: Mirror through yt-dlp. Click /{BotCommands.WatchCommand} for more help.
-/{BotCommands.TarWatchCommand} [youtube-dl supported link]: Mirror through yt-dlp and tar before uploading.
-/{BotCommands.LeechTarWatchCommand} [youtube-dl supported link]: Mirror through yt-dlp and tar before uploading to Telegram.
-/{BotCommands.CloneCommand} [drive_url]: Copy file/folder to Google Drive.
-/{BotCommands.CancelMirror}  Reply to the message by which the download was initiated and that download will be cancelled.    
-/{BotCommands.UnzipMirrorCommand} [download_url][magnet_link]: Starts mirroring and if downloaded file is any archive, extracts it to Google Drive.
+/{BotCommands.HelpCommand} عشان يظهرلك الرسالة دي    
+/{BotCommands.MirrorCommand} [لينك مباشر][لينك تورنت]: عمل ميرور علي جوجل درايف.
+/{BotCommands.ZipMirrorCommand} [لينك مباشر][لينك تورنت]: ضغط الملفات بصيغة zip وعمل ميرور.
+/{BotCommands.LeechCommand} [لينك مباشر][لينك تورنت]: رفع الملفات لتليجرام.
+/{BotCommands.ZipLeechCommand} [لينك مباشر][لينك تورنت]: ضغط الملفات بصيغة zip ورفعها لتليجرام.
+/{BotCommands.WatchCommand} [لينك يوتيوب]: ميرور لينكات اليوتيوب. دوس علي /{BotCommands.WatchCommand} لمساعدة اكتر.
+/{BotCommands.TarWatchCommand} [لينك يوتيوب]: ضغط فيديوهات اليوتيوب ورفعها بصيغة tar.
+/{BotCommands.LeechTarWatchCommand} [لينك يوتيوب]: رفع فيديو يوتيوب لتليجرام.
+/{BotCommands.CloneCommand} [لينك جوجل درايف]: نسخ الملف او الفولدر علي جوجل درايف.
+/{BotCommands.CancelMirror}  قم بالرد علي الرسالة اللي بدأت بيها الميرور عشان تلغيه.    
+/{BotCommands.UnzipMirrorCommand} [لينك مباشر][لينك تورنت]: فك الضغط وعمل ميرور علي جوجل درايف.
 '''
     help = telegraph.create_page(
             title='MMETMA Mirror Help',
