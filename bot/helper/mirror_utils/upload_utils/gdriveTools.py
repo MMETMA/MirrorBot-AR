@@ -486,15 +486,15 @@ class GoogleDriveHelper:
                     LOGGER.info("Deleting cloned data from drive...")
                     self.deletefile(durl)
                     return "Your clone has been stopped and cloned data has been deleted!", "cancelled"
-                msg += f'<b>اسم الملف : </b><code>{meta.get("name")}</code>\n<b>Size : </b>{get_readable_file_size(self.transferred_size)}'
+                msg += f'<b>اسم الملف : </b><code>{meta.get("name")}</code>\n<b>الحجم: </b>{get_readable_file_size(self.transferred_size)}'
                 buttons = button_build.ButtonMaker()
                 if SHORTENER is not None and SHORTENER_API is not None:
                     surl = requests.get(
                         f"https://{SHORTENER}/api?api={SHORTENER_API}&url={durl}&format=text"
                     ).text
-                    buttons.buildbutton("☁️ رابط درايڤ", surl)
+                    buttons.buildbutton("☁️ لينك درايڤ", surl)
                 else:
-                    buttons.buildbutton("☁️ رابط درايڤ", durl)
+                    buttons.buildbutton("☁️ لينك درايڤ", durl)
                 if INDEX_URL is not None:
                     url_path = requests.utils.quote(f'{meta.get("name")}')
                     url = f"{INDEX_URL}/{url_path}/"
@@ -502,9 +502,9 @@ class GoogleDriveHelper:
                         siurl = requests.get(
                             f"https://{SHORTENER}/api?api={SHORTENER_API}&url={url}&format=text"
                         ).text
-                        buttons.buildbutton("⚡ رابط مباشر", siurl)
+                        buttons.buildbutton("⚡ لينك مباشر", siurl)
                     else:
-                        buttons.buildbutton("⚡ رابط مباشر", url)
+                        buttons.buildbutton("⚡ لينك مباشر", url)
             else:
                 file = self.copyFile(meta.get("id"), parent_id)
                 msg += f'<b>اسم الملف : </b><code>{file.get("name")}</code>'
@@ -514,11 +514,11 @@ class GoogleDriveHelper:
                     surl = requests.get(
                         f"https://{SHORTENER}/api?api={SHORTENER_API}&url={durl}&format=text"
                     ).text
-                    buttons.buildbutton("☁️ رابط درايڤ", surl)
+                    buttons.buildbutton("☁️ لينك درايڤ", surl)
                 else:
-                    buttons.buildbutton("☁️ رابط درايڤ", durl)
+                    buttons.buildbutton("☁️ لينك درايڤ", durl)
                 try:
-                    msg += f'\n<b>Size : </b><code>{get_readable_file_size(int(meta.get("size")))}</code>'
+                    msg += f'\n<b>الحجم: </b><code>{get_readable_file_size(int(meta.get("size")))}</code>'
                 except TypeError:
                     pass
                 if INDEX_URL is not None:
@@ -529,11 +529,11 @@ class GoogleDriveHelper:
                         siurl = requests.get(
                             f"https://{SHORTENER}/api?api={SHORTENER_API}&url={url}&format=text"
                         ).text
-                        buttons.buildbutton("⚡ رابط مباشر", siurl)
+                        buttons.buildbutton("⚡ لينك مباشر", siurl)
                     else:
-                        buttons.buildbutton("⚡ رابط مباشر", url)
+                        buttons.buildbutton("⚡ لينك مباشر", url)
                         if VIEW_LINK:
-                            buttons.buildbutton("🌐 رابط مشاهدة", urls)
+                            buttons.buildbutton("🌐 لينك مشاهدة", urls)
             if BUTTON_THREE_NAME is not None and BUTTON_THREE_URL is not None:
                 buttons.buildbutton(f"{BUTTON_THREE_NAME}", f"{BUTTON_THREE_URL}")
             if BUTTON_FOUR_NAME is not None and BUTTON_FOUR_URL is not None:
