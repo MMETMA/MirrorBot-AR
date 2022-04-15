@@ -49,15 +49,15 @@ def stats(update, context):
     memory = psutil.virtual_memory().percent
     disk = psutil.disk_usage("/").percent
     stats = (
-        f"<b>Bot Uptime:</b> {currentTime}\n"
-        f"<b>Total disk space:</b> {total}\n"
-        f"<b>Used:</b> {used}  "
-        f"<b>Free:</b> {free}\n\n"
-        f"Data Usage\n<b>Upload:</b> {sent}\n"
-        f"<b>Down:</b> {recv}\n\n"
-        f"<b>CPU:</b> {cpuUsage}% "
-        f"<b>RAM:</b> {memory}% "
-        f"<b>Disk:</b> {disk}%"
+        f"<b>البوت شغال من:</b> {currentTime}\n"
+        f"<b>المساحة الكلية:</b> {total}\n"
+        f"<b>المستخدم:</b> {used}  "
+        f"<b>المتاح:</b> {free}\n\n"
+        f"استخدام البيانات\n<b>رفع:</b> {sent}\n"
+        f"<b>تنزيل:</b> {recv}\n\n"
+        f"<b>البروسيسور:</b> {cpuUsage}% "
+        f"<b>الرام:</b> {memory}% "
+        f"<b>الذاكرة:</b> {disk}%"
     )
     sendMessage(stats, context.bot, update)
 
@@ -186,14 +186,14 @@ def bot_help(update, context):
 
 
 botcmds = [
-    (f"{BotCommands.HelpCommand}", "Get detailed help"),
-    (f"{BotCommands.MirrorCommand}", "Start mirroring"),
-    (f"{BotCommands.QbMirrorCommand}", "Start mirroring Qbit"),
-    (f"{BotCommands.LeechCommand}", "Start Leeching"),
-    (f"{BotCommands.QbLeechCommand}", "Start Leeching With Qbit"),
-    (f"{BotCommands.UnzipLeechCommand}", "Extract files(Leech)"),
-    (f"{BotCommands.QbUnzipLeechCommand}", "Extract files(Leech+Qbit)"),
-    (f"{BotCommands.LeechWatchCommand}", "Mirror Youtube-dl support link(Leech)"),
+    (f"{BotCommands.HelpCommand}", "للحصول علي مساعدة تفصيلية"),
+    (f"{BotCommands.MirrorCommand}", "عمل ميرور للرابط"),
+    (f"{BotCommands.QbMirrorCommand}", "عمل ميرور Qbit"),
+    (f"{BotCommands.LeechCommand}", "رفع الملفات لتليجرام"),
+    (f"{BotCommands.QbLeechCommand}", "رفع الملفات لتليجرام Qbit"),
+    (f"{BotCommands.UnzipLeechCommand}", "استخراج الملفات ورفعها لتليجرام"),
+    (f"{BotCommands.QbUnzipLeechCommand}", "استخراج الملفات ورفعها لتليجرام Qbit"),
+    (f"{BotCommands.LeechWatchCommand}", "رفع فيديو يوتيوب لتيليجرام"),
     (f"{BotCommands.LeechTarWatchCommand}", "Mirror Youtube playlist link as .zip(Leech)"),
     (f"{BotCommands.LeechZipWatchCommand}", "Mirror Youtube playlist link as .zip(Leech)"),
     (f"{BotCommands.ZipLeechCommand}", "Start mirroring and upload as .zip(Leech)"),
@@ -239,7 +239,7 @@ def main():
     if os.path.isfile(".restartmsg"):
         with open(".restartmsg") as f:
             chat_id, msg_id = map(int, f)
-        bot.edit_message_text("Restarted successfully!", chat_id, msg_id)
+        bot.edit_message_text("تم اعادة التشغيل بنجاح!", chat_id, msg_id)
         os.remove(".restartmsg")
     bot.set_my_commands(botcmds)
 
