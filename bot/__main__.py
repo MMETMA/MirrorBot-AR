@@ -176,7 +176,7 @@ def bot_help(update, context):
         )["path"]
     buttons = button_build.ButtonMaker()
     buttons.buildbutton("كل الاوامر", f"https://telegra.ph/{help}")
-    buttons.buildbutton("Renaming Tips", "https://telegra.ph/Magneto-Python-Aria---Custom-Filename-Examples-01-20")
+    buttons.buildbutton("مساعدة لاعادة التسمية", "https://telegra.ph/Magneto-Python-Aria---Custom-Filename-Examples-01-20")
     reply_markup = InlineKeyboardMarkup(buttons.build_menu(2))
     sendMarkup(help_string, context.bot, update, reply_markup)
 ''''''    
