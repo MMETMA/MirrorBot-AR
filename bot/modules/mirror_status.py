@@ -18,7 +18,7 @@ from bot.helper.telegram_helper.message_utils import (
 def mirror_status(update, context):
     message = get_readable_message()
     if len(message) == 0:
-        message = "No active downloads"
+        message = "مفيش حاجة بتحمل"
         reply_message = sendMessage(message, context.bot, update)
         threading.Thread(
             target=auto_delete_message, args=(bot, update.message, reply_message)

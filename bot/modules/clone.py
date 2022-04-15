@@ -33,7 +33,7 @@ def cloneNode(update, context):
             deleteMessage(context.bot, msg)
             return sendMessage(str(e), context.bot, update)
     if is_gdrive_link(link):
-        msg = sendMessage(f"Checking Drive Link...", context.bot, update)
+        msg = sendMessage(f"جار فحص رابط جوجل درايف...", context.bot, update)
         gd = gdriveTools.GoogleDriveHelper()
         res, size, name, files = gd.clonehelper(link)
         deleteMessage(context.bot, msg)
@@ -102,7 +102,7 @@ def cloneNode(update, context):
         if gdtot_link:
             gd.deletefile(link)                                                     
     else:
-        sendMessage('Provide G-Drive Or Gdtot Shareable Link to Clone.', context.bot, update)
+        sendMessage('ابعت لينك جوجل درايف عشان تعمله نسخة.', context.bot, update)
         
 clone_handler = CommandHandler(BotCommands.CloneCommand, cloneNode, filters=CustomFilters.authorized_chat | CustomFilters.authorized_user, run_async=True)
 dispatcher.add_handler(clone_handler)

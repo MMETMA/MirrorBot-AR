@@ -8,7 +8,7 @@ from telegram.ext import CallbackContext, Filters, CommandHandler
 
 def speedtest(update, context):
     message = update.effective_message
-    ed_msg = message.reply_text("Running Speed Test . . . 📈📊")
+    ed_msg = message.reply_text("جار حساب سرعة الانترنت . . . 📈📊")
     test = Speedtest()
     test.get_best_server()
     test.download()
@@ -17,15 +17,15 @@ def speedtest(update, context):
     result = test.results.dict()
     path = (result['share'])
     string_speed = f'''
-<b>🖥️ Server / Stats of The Machine 🖥️</b>
-<b>💳 Name:</b> <code>{result['server']['name']}</code>
-<b>⛳️ Country:</b> <code>{result['server']['country']}, {result['server']['cc']}</code>
+<b>🖥️ السيرفر / Stats of The Machine 🖥️</b>
+<b>💳 الاسم:</b> <code>{result['server']['name']}</code>
+<b>⛳️ الدولة:</b> <code>{result['server']['country']}, {result['server']['cc']}</code>
     
-<b>✈️ SpeedTest Results 💨</b>
-<b>🔺 Upload:</b> <code>{speed_convert(result['upload'] / 8)}</code>
-<b>🔻 Download:</b>  <code>{speed_convert(result['download'] / 8)}</code>
-<b>📶 Ping:</b> <code>{result['ping']} ms</code>
-<b>🏬 ISP:</b> <code>{result['client']['isp']}</code>
+<b>✈️ سرعة النت 💨</b>
+<b>🔺 رفع:</b> <code>{speed_convert(result['upload'] / 8)}</code>
+<b>🔻 تنزيل:</b>  <code>{speed_convert(result['download'] / 8)}</code>
+<b>📶 البنج:</b> <code>{result['ping']} ms</code>
+<b>🏬 مقدم الخدمة:</b> <code>{result['client']['isp']}</code>
 '''
     ed_msg.delete()
     try:

@@ -278,9 +278,9 @@ class MirrorListener(listeners.MirrorListeners):
                 surl = requests.get(
                     f"https://{SHORTENER}/api?api={SHORTENER_API}&url={link}&format=text"
                 ).text
-                buttons.buildbutton("☁️ Drive Link", surl)
+                buttons.buildbutton("☁️ لينك درايڥ", surl)
             else:
-                buttons.buildbutton("☁️ Drive Link", link)
+                buttons.buildbutton("☁️ لينك درايڤ", link)
             LOGGER.info(f'Done Uploading {download_dict[self.uid].name()}')
             if INDEX_URL is not None:
                 url_path = requests.utils.quote(f'{download_dict[self.uid].name()}')
@@ -289,21 +289,21 @@ class MirrorListener(listeners.MirrorListeners):
                     share_url += '/'
                     if SHORTENER is not None and SHORTENER_API is not None:
                         siurl = requests.get(f'https://{SHORTENER}/api?api={SHORTENER_API}&url={share_url}&format=text').text
-                        buttons.buildbutton("⚡ Index Link", siurl)
+                        buttons.buildbutton("⚡ لينك انديكس", siurl)
                     else:
-                        buttons.buildbutton("⚡ Index Link", share_url)
+                        buttons.buildbutton("⚡ لينك انديكس", share_url)
                 else:
                     share_urls = f'{INDEX_URL}/{url_path}?a=view'
                     if SHORTENER is not None and SHORTENER_API is not None:
                         siurl = requests.get(f'https://{SHORTENER}/api?api={SHORTENER_API}&url={share_url}&format=text').text
                         siurls = requests.get(f'https://{SHORTENER}/api?api={SHORTENER_API}&url={share_urls}&format=text').text
-                        buttons.buildbutton("⚡ Index Link", siurl)
+                        buttons.buildbutton("⚡ لينك انديكس", siurl)
                         if VIEW_LINK:
-                            buttons.buildbutton("🌐 View Link", siurls)
+                            buttons.buildbutton("🌐 لينك مشاهدة", siurls)
                     else:
-                        buttons.buildbutton("⚡ Index Link", share_url)
+                        buttons.buildbutton("⚡ لينك انديكس", share_url)
                         if VIEW_LINK:
-                            buttons.buildbutton("🌐 View Link", share_urls)
+                            buttons.buildbutton("🌐 لينك مشاهدة", share_urls)
             if BUTTON_THREE_NAME is not None and BUTTON_THREE_URL is not None:
                 buttons.buildbutton(f"{BUTTON_THREE_NAME}", f"{BUTTON_THREE_URL}")               
             if BUTTON_FOUR_NAME is not None and BUTTON_FOUR_URL is not None:
@@ -315,13 +315,13 @@ class MirrorListener(listeners.MirrorListeners):
             else:
                 uname = f'<a href="tg://user?id={self.message.from_user.id}">{self.message.from_user.first_name}</a>'
             if uname is not None:
-                msg += f"\n\ncc : {uname}"
+                msg += f"\n\nبواسطة : {uname}"
                 if LOGS_CHATS:
                     try:
                         for i in LOGS_CHATS:
-                            msg1 = f'<b>File Uploaded: </b> <code>{download_dict[self.uid].name()}</code>\n'
-                            msg1 += f'<b>Size: </b>{size}\n'
-                            msg1 += f'<b>By: </b>{uname}\n'
+                            msg1 = f'<b>تم رفع الملف: </b> <code>{download_dict[self.uid].name()}</code>\n'
+                            msg1 += f'<b>الحجم: </b>{size}\n'
+                            msg1 += f'<b>بواسطة: </b>{uname}\n'
                             bot.sendMessage(chat_id=i, text=msg1, reply_markup=InlineKeyboardMarkup(buttons.build_menu(2)), parse_mode=ParseMode.HTML)
                     except Exception as e:
                         LOGGER.warning(e) 
@@ -484,7 +484,7 @@ def _mirror(bot, update, isTar=False, isZip=False, extract=False, isQbit=False, 
     if bot_utils.is_gdrive_link(link):
         if not isZip and not isTar and not extract and not isLeech:
             sendMessage(
-                f"Use /{BotCommands.CloneCommand} To Copy File/Folder", bot, update
+                f"استخدم /{BotCommands.CloneCommand} عشان تعمل نسخة", bot, update
             )
             return
         res, size, name, files = gdriveTools.GoogleDriveHelper().clonehelper(link)

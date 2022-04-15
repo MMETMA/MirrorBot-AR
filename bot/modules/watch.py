@@ -73,8 +73,8 @@ def _watch(bot, update, isTar=False, isZip=False, isLeech=False, pswd=None):
         for i in ['144', '240', '360', '480', '720', '1080', '1440', '2160']:
             video_format = f"bv*[height<={i}]+ba/b"
             buttons.sbutton(str(i), f"qual {msg_id} {video_format} true")
-        buttons.sbutton("Best Videos", f"qual {msg_id} {best_video} true")
-        buttons.sbutton("Best Audios", f"qual {msg_id} {best_audio} true")
+        buttons.sbutton("افضل فيديو", f"qual {msg_id} {best_video} true")
+        buttons.sbutton("افضل صوت", f"qual {msg_id} {best_audio} true")
     else:
         formats = result.get('formats')
 
@@ -108,12 +108,12 @@ def _watch(bot, update, isTar=False, isZip=False, isLeech=False, pswd=None):
                     video_format = f"bv*[height={qual_fps_ext[0]}][ext={qual_fps_ext[2]}]+ba/b"
                 buttonName = f"{forDict} ({get_readable_file_size(formats_dict[forDict][0])})"
                 buttons.sbutton(str(buttonName), f"qual {msg_id} {video_format} f")
-        buttons.sbutton("Best Video", f"qual {msg_id} {best_video} f")
-        buttons.sbutton("Best Audio", f"qual {msg_id} {best_audio} f")
+        buttons.sbutton("افضل فيديو", f"qual {msg_id} {best_video} f")
+        buttons.sbutton("افضل صوت", f"qual {msg_id} {best_audio} f")
 
-    buttons.sbutton("Cancel", f"qual {msg_id} cancel f")
+    buttons.sbutton("الغاء", f"qual {msg_id} cancel f")
     YTBUTTONS = InlineKeyboardMarkup(buttons.build_menu(2))
-    sendMarkup('Choose video/playlist quality', bot, update, YTBUTTONS)
+    sendMarkup('اختار الجودة اللي هيترفع بيها', bot, update, YTBUTTONS)
 
 
 def select_format(update, context):
