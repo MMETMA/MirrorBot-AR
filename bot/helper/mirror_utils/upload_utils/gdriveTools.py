@@ -960,7 +960,7 @@ class GoogleDriveHelper:
             self.edit_telegraph()
         msg = f"تم العثور علي {all_contents_count} نتائج ل {fileName}"
         buttons = button_build.ButtonMaker()
-        buttons.buildbutton("Click Here for results", f"https://telegra.ph/{self.path[0]}")
+        buttons.buildbutton("دوس هنا عشان تشوف النتائج", f"https://telegra.ph/{self.path[0]}")
         return msg, InlineKeyboardMarkup(buttons.build_menu(1))
     
     def drive_list(self, fileName):
@@ -1059,7 +1059,7 @@ class GoogleDriveHelper:
 
         msg = f"<b>تم العثور علي <code>{len(response['files'])}</code> نتائج ل <code>{fileName}</code></b>"
         buttons = button_build.ButtonMaker()
-        buttons.buildbutton("Click Here for results", f"https://telegra.ph/{self.path[0]}")
+        buttons.buildbutton("دوس هنا عشان تشوف النتائج", f"https://telegra.ph/{self.path[0]}")
 
         return msg, InlineKeyboardMarkup(buttons.build_menu(1))
 
