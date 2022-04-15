@@ -486,7 +486,7 @@ class GoogleDriveHelper:
                     LOGGER.info("Deleting cloned data from drive...")
                     self.deletefile(durl)
                     return "Your clone has been stopped and cloned data has been deleted!", "cancelled"
-                msg += f'<b>Filename : </b><code>{meta.get("name")}</code>\n<b>Size : </b>{get_readable_file_size(self.transferred_size)}'
+                msg += f'<b>اسم الملف : </b><code>{meta.get("name")}</code>\n<b>Size : </b>{get_readable_file_size(self.transferred_size)}'
                 buttons = button_build.ButtonMaker()
                 if SHORTENER is not None and SHORTENER_API is not None:
                     surl = requests.get(
@@ -507,7 +507,7 @@ class GoogleDriveHelper:
                         buttons.buildbutton("⚡ لينك مباشر", url)
             else:
                 file = self.copyFile(meta.get("id"), parent_id)
-                msg += f'<b>Filename : </b><code>{file.get("name")}</code>'
+                msg += f'<b>اسم الملف : </b><code>{file.get("name")}</code>'
                 durl = self.__G_DRIVE_BASE_DOWNLOAD_URL.format(file.get("id"))
                 buttons = button_build.ButtonMaker()
                 if SHORTENER is not None and SHORTENER_API is not None:
