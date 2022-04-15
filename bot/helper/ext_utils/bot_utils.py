@@ -130,10 +130,10 @@ def get_readable_message():
     with download_dict_lock:
         msg = ""
         for download in list(download_dict.values()):
-            msg += f"<b>Filename:</b> <code>{download.name()}</code>"
+            msg += f"<b>اسم الملف:</b> <code>{download.name()}</code>"
             msg += f"\n\n<b>{download.status()}</b>"
             if download.status() != MirrorStatus.STATUS_ARCHIVING and download.status() != MirrorStatus.STATUS_EXTRACTING and download.status() != MirrorStatus.STATUS_SPLITTING and download.status() != MirrorStatus.STATUS_SEEDING:
-                msg += f"\n\n{get_progress_bar_string(download)} {download.progress()}"
+                msg += f"\n\nـ{get_progress_bar_string(download)} {download.progress()}"
                 if download.status() == MirrorStatus.STATUS_UPLOADING:
                     msg += f"\n\n<b>✅ تم الرفع:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
                 elif download.status() == MirrorStatus.STATUS_CLONING:
