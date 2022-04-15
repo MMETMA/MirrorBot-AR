@@ -239,15 +239,15 @@ class MirrorListener(listeners.MirrorListeners):
                 uname = f'<a href="tg://user?id={self.message.from_user.id}">{self.message.from_user.first_name}</a>'
             count = len(files)
             if self.message.chat.type == 'private':
-                msg = f'<b>Name:</b> <code>{link}</code>\n'
-                msg += f'<b>Total Files:</b> {count}'
+                msg = f'<b>الاسم:</b> <code>{link}</code>\n'
+                msg += f'<b>عدد الملفات:</b> {count}'
                 if typ != 0:
                     msg += f'\n<b>Corrupted Files: </b>{typ}'
                 sendMessage(msg, self.bot, self.update)
             else:
                 chat_id = str(self.message.chat.id)[4:]
-                msg = f"<b>Name:</b> <a href='https://t.me/c/{chat_id}/{self.uid}'>{link}</a>\n"
-                msg += f'<b>Total Files:</b> {count}\n'
+                msg = f"<b>الاسم:</b> <a href='https://t.me/c/{chat_id}/{self.uid}'>{link}</a>\n"
+                msg += f'<b>عدد الملفات:</b> {count}\n'
                 msg += f'بواسطة: {uname}\n\n'
                 if typ != 0:
                     msg += f'\n<b>Corrupted Files: </b>{typ}'
@@ -264,9 +264,9 @@ class MirrorListener(listeners.MirrorListeners):
             if LOGS_CHATS:
                 try:
                     for i in LOGS_CHATS:
-                        msg1 = f"<b>Files Leeched</b>\n"
-                        msg1 += f"<b>By:</b> {uname}\n"
-                        msg1 += f'<b>Total Files:</b> {count}\n'
+                        msg1 = f"<b>تم رفع الملفات</b>\n"
+                        msg1 += f"<b>بواسطة:</b> {uname}\n"
+                        msg1 += f'<b>عدد الملفات:</b> {count}\n'
                         bot.sendMessage(chat_id=i, text=msg1, parse_mode=ParseMode.HTML)
                 except Exception as e:
                     LOGGER.warning(e)                                           
