@@ -172,7 +172,7 @@ class GoogleDriveHelper:
         media_body = MediaFileUpload(path, mimetype=mime_type, resumable=False)
         file_metadata = {
             "name": file_name,
-            "description": "Uploaded Using Harsh MirrorBot",
+            "description": "Uploaded Using MMETMA MirrorBot",
             "mimeType": mime_type,
         }
         if parent_id is not None:
@@ -682,7 +682,7 @@ class GoogleDriveHelper:
                     nxt_page += 1
             telegraph.edit_page(
                 path = self.path[prev_page],
-                title = 'Harsh Mirror Repo Search',
+                title = 'MMETMA Mirror Repo Search',
                 content=content
             )
         return
@@ -951,7 +951,7 @@ class GoogleDriveHelper:
         for content in self.telegraph_content:
            self.path.append(
                telegraph.create_page(
-                   title='Harsh Mirror Repo Search',
+                   title='MMETMA Mirror Repo Search',
                    content=content
                )["path"]
            )
@@ -1048,7 +1048,7 @@ class GoogleDriveHelper:
         for content in self.telegraph_content:
            self.path.append(
                telegraph.create_page(
-                   title='Harsh Mirror Repo Search',
+                   title='MMETMA Mirror Repo Search',
                    content=content
                )["path"]
            )
