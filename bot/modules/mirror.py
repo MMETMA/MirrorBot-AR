@@ -272,7 +272,7 @@ class MirrorListener(listeners.MirrorListeners):
                     LOGGER.warning(e)                                           
             return
         with download_dict_lock:
-            msg = f"<b>Filename : </b><code>{download_dict[self.uid].name()}</code>\n<b>الحجم : </b><code>{size}</code>"
+            msg = f"<b>اسم الملف : </b><code>{download_dict[self.uid].name()}</code>\n<b>الحجم : </b><code>{size}</code>"
             buttons = button_build.ButtonMaker()
             if SHORTENER is not None and SHORTENER_API is not None:
                 surl = requests.get(
